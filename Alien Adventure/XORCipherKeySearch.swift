@@ -24,15 +24,21 @@ extension Hero {
             
             var decrypted: [UInt8]
             decrypted = [UInt8]()
-            
+           
+            //加密数据 encryptedString  ==> 原始数据 udacity  key??
             for character in encryptedString {
                 // ADD CODE: perform decryption
+                decrypted.append(character ^ x)
+              
                 print(character)
+                print(decrypted)
             }
-            
+        
             if let decryptedString = String(bytes: decrypted,
                 encoding: String.Encoding.utf8), decryptedString == "udacity" {
                     // ADD CODE: found match, now what?
+                print ("key =",x)
+                key = x
             }
         }
         
