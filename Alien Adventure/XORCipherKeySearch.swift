@@ -37,8 +37,9 @@ extension Hero {
             if let decryptedString = String(bytes: decrypted,
                 encoding: String.Encoding.utf8), decryptedString == "udacity" {
                     // ADD CODE: found match, now what?
-                print ("key =",x)
+                print ("key =",x)//有两个答案  12 69 ?
                 key = x
+                return key
             }
         }
         

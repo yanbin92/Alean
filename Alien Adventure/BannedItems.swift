@@ -9,9 +9,25 @@
 import Foundation
 
 extension Hero {
-    
+    /**
+ 打开位于主捆绑包中的 plist 文件。
+ 浏览 plist 文件的内容，确定哪些物品应该禁用。如果物品的名称包含“laser”一词，并且碳龄小于30，则该物品应该禁用。
+ 返回一个数组，其中包含所有禁用物品的 ItemID。
+ 
+ 不要忘记 — 使用字典键和字符串匹配时，必须区分字母大小写！
+ */
     func bannedItems(dataFile: String) -> [Int] {
-        return [Int]()
+        let dataFileUrl = Bundle.main.url(forResource: dataFile, withExtension: "plist")!
+        let arr = NSArray(contentsOf: dataFileUrl) as! [[String:Any]]
+        
+        var itemIds = [Int]()
+        for item in arr {
+            if let name = item["Name"] as? String,let baseValue = item["BaseValue"] as? Int , (name.contains("Laser")) && (baseValue<30){
+                itemIds.append((item["ItemID"] as! Int))
+            }
+        }
+        print (itemIds)
+        return itemIds
     }
 }
 
