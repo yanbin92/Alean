@@ -11,12 +11,17 @@ import SpriteKit
 class Badge: SKSpriteNode {
 
     var requestType: UDRequestType
-    
+    var imageName: String
     init(requestType: UDRequestType) {
+    
         self.requestType = requestType
-        super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 48, height: 48))
+        self.imageName = "BadgeMagenta"
+        super.init(texture: SKTexture(imageNamed:imageName), color: UIColor.clear, size: CGSize(width: 48, height: 48))
     }
-
+    
+   // init(texture: SKTexture?, color: UIColor, size: CGSize) {
+   //      super.init(texture: texture, color: UIColor.clear, size: CGSize(width: 48, height: 48))
+   // }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
