@@ -9,14 +9,25 @@
 extension Hero {
     
     func sortLeastToGreatest(inventory: [UDItem]) -> [UDItem] {
-        inventory.sorted(){
+        var sortItems = inventory.sorted(){
         //如果某个物品更为常见，则它应该比其他物品更低。
         //如果两个物品的稀有度相同，则对基值较低的物品更低。
         // 从低到高对物品排序。
-            return $1.rarity.rawValue>$0.rarity.rawValue ? (true):$1.baseValue>$0.baseValue
+        //    print( $1.rarity.rawValue,$0.rarity.rawValue)
+         //   print( $1.baseValue,$0.baseValue)
+            //按种类分组 排序
+            return $1.rarity.rawValue>$0.rarity.rawValue
         }
-        print(inventory)
-        return inventory
+        //分组
+        sortItems=sortItems.sorted(){
+            if($1.rarity.rawValue == $0.rarity.rawValue){
+                //不改变价值的排序
+                return $1.baseValue>$0.baseValue
+            }
+            return false
+        }
+        print(sortItems)
+        return sortItems
     }
     
 }

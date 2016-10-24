@@ -10,12 +10,14 @@ extension Hero {
     
     func getCommonItems(inventory: [UDItem]) -> [UDItem] {
         //返回 UDItem 数组，其中仅包含属于原始库存，并罕见度为 Common 的物品。
-        inventory.filter {
+        var commonItems = inventory.filter {
             $0.rarity==UDItemRarity.common
         }
         //let cast = ["Vivien", "Marlon", "Kim", "Karl"]
         //let shortNames = cast.filter { $0.characters.count < 5 }
-        return inventory
+        //    print(shortNames)
+        ///     // Prints "["Kim", "Karl"]"
+        return commonItems
     }
     
 }

@@ -9,18 +9,22 @@
 extension Hero {
     
     func removeDuplicates(inventory: [UDItem]) -> [UDItem] {
+        //use set
         var dictiony = [UDItem:Int]()
-        var uditems = [UDItem]()
+        var uditems = Set<UDItem>()
         inventory.map { (item) -> Void in
             dictiony[item]==nil ? (dictiony[item] = 1):
             (dictiony[item]!+=1)
         }
         dictiony.map { (key: UDItem, value: Int) -> Void in
-            if(value==1){
-                uditems.append(key)
-            }
+          //  if(value==1){
+                uditems.insert(key)
+          //  }
+            //else{//加入一次
+           //     uditems.insert(key)
+           // }
         }
-        return uditems
+        return Array(uditems)
     }
     
 }
