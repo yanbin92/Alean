@@ -33,7 +33,15 @@ struct UDItem {
     var historicalData: [String:AnyObject]
     
     // MARK: Initializer
-  
+    init(_ uditem:UDItem){
+        self.itemID = uditem.itemID
+        self.itemType = uditem.itemType
+        self.name = uditem.name
+        self.baseValue = uditem.baseValue
+        self.inscription = uditem.inscription
+        self.rarity = uditem.rarity
+        self.historicalData = uditem.historicalData
+    }
     init(itemID: Int, itemType: UDItemType, name: String, baseValue: Int, inscription: String? = nil, rarity: UDItemRarity, historicalData: [String:AnyObject]) {
         self.itemID = itemID
         self.itemType = itemType

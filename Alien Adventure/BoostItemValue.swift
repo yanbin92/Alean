@@ -9,7 +9,22 @@
 extension Hero {
     
     func boostItemValue(inventory: [UDItem]) -> [UDItem] {
-        return [UDItem]()
+       let newUditems = inventory.map { (item) -> UDItem in
+            var uditem:UDItem = UDItem(item)
+            uditem.baseValue+=100
+            return uditem
+
+        }
+      //  inventory.map(){
+            //copy
+       //     var uditem:UDItem = UDItem($0)
+         //   uditem.baseValue+=100
+        //    return uditem
+      //  }
+        print(newUditems)
+        //let cast = ["Vivien", "Marlon", "Kim", "Karl"]
+//        let lowercaseNames = cast.map { $0.lowercaseString }
+        return newUditems
     }
 }
 

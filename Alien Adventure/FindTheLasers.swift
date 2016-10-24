@@ -11,7 +11,11 @@ extension Hero {
     func findTheLasers() -> ((UDItem) -> Bool) {
         
         func containsLaser(item: UDItem) -> Bool {
-            return true
+            //外星人表示如果物品的名称包含单词“laser”，该方法应返回 True（否则为 False）
+            if(item.name.lowercased().contains("laser")){
+                return true
+            }
+            return false
         }
         
         return containsLaser
